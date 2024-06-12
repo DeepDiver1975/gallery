@@ -370,11 +370,11 @@
 			value = 0;
 			this._rotationCupClean();
 			// Only modern browsers can manipulate history
-			if (history && history.replaceState) {
+			if (history && history.replaceState && window.history.length > 1) {
 				// We simulate a click on the back button in order to be consistent
 				window.history.back();
 			} else {
-				// For ancient browsers supported in core
+				// There is no history to go back to.
 				this.stop();
 			}
 		},
